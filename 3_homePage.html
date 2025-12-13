@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            height: 100px;
+            width: 100%;
+            background-color: burlywood;
+            transition: height 0.4s;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            position: sticky;
+            top: 0;
+        }
+        .container{
+            width: 75%;
+            height: 180vh;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content:flex-start;
+        }
+        .cart{
+            height: 600px;
+            width: 300px;
+            background-color: cadetblue;
+            position: fixed;
+            top: 120px;
+            right: 10px;
+            display: none;
+        }
+        .card{
+            margin: 15px;
+            height: 320px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 1px rgba(47,47,47,0.5);
+        }
+        .card-image-div{
+            height: 60%;
+            border-radius: 10px 10px 0px 0px;
+            background-color: beige;
+            overflow: hidden;
+        }
+        .card-image-div > img {
+            height: 100%;
+            width: 100%;
+        }
+        .card-details{
+            height: 40%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid rgb(209, 209, 209);
+        }
+        .card-title{
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .card-description{
+            line-height: 1.4em; /* Adjust as needed for readability */
+            min-height: 2.8em;  /* 2 lines * 1.4em line-height = 2.8em minimum height */
+
+            /* The truncation magic */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            
+            /* Limits display to a maximum of 2 lines */
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; 
+        }
+        .card-price{
+            font-size: 20px;
+            color: orange;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- <i class="ri-menu-line"></i> -->
+         <h1>Login</h1>
+    </nav>
+    <main class="container">
+    </main>
+    <aside class="cart">
+
+    </aside>
+
+    <script src="./3_homePage.js"></script>
+</body>
+</html>
