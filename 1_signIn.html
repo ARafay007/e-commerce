@@ -29,7 +29,7 @@
             justify-content: center;
         }
         form{
-            height: 320px;
+            height: max-content;
             width: 300px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px 2px rgb(184, 184, 184);
@@ -61,6 +61,14 @@
             font-size: 14px;
             display: none;
         }
+        .signUp{
+            margin: 20px 0px;
+            text-align: center;
+            width: 90%;
+        }
+        .signUp > a{
+            text-decoration: none;
+        }
         @media screen and (max-width: 500px){
             .ri-menu-line{
                 display: inline;
@@ -89,6 +97,11 @@
             </div>
 
             <button id="login" type="submit">Login</button>
+            
+            <p class="signUp">
+                Don't have an account?
+                <a href="./2_signUp.html">Click here</a>
+            </p>
         </form>
     </div>
 

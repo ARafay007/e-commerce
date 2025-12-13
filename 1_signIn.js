@@ -13,6 +13,8 @@ form.addEventListener('submit', function(event){
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     event.preventDefault();
 
+    console.log(passwordField.value)
+
     let isUsernameCorrect = false, isPasswordCorrect = false;
 
     if(usernameField.value === ''){
