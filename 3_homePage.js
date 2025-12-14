@@ -63,3 +63,30 @@ const renderProductsCard = () => {
 };
 
 renderProductsCard();
+
+const cards = document.querySelectorAll('.card');
+
+// console.log(cards);
+
+// for(let i=0; i<cards.length; i++){
+//     cards[i].addEventListener('click', () => {
+//         console.log(i);
+//     })
+// }
+
+const ary = [1,2,3,4,6,76,78];
+const stringifyAry = JSON.stringify(ary);
+
+console.log(ary);
+// console.log(stringifyAry);
+// console.log(JSON.parse(stringifyAry));
+
+localStorage.setItem('Name', ['abc', 'xyz', 123]);
+
+cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+        window.location.href = './4_detail.html';
+    });
+});
+
+// console.log(localStorage.getItem('Name'));
