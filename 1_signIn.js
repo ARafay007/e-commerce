@@ -72,6 +72,6 @@ form.addEventListener('submit', function(event){
     // }
 
     if(isUsernameCorrect && isPasswordCorrect){
-        window.location.href = './2_signUp.html';
+        window.location.href = './3_homePage.html';
     }
 })

@@ -4,17 +4,20 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const queryId = urlParams.get('id');
 
-console.log(queryId);
-
 const products = JSON.parse(localStorage.getItem('products'));
-// console.log(products);
+let itemQty = 1;
 
-// for(let i = 0; i < products.length; i++){
-//     if(products[i].id == queryId){
-//         console.log(products[i]);
-//         break;
-//     }
-// }
+const img = document.querySelector('.img');
+const productHeading = document.querySelector('.product-heading');
+const productDescription = document.querySelector('.product-description');
+const productPrice = document.querySelector('.product-price');
+const productQty = document.querySelector('.product-qty');
+
+const qtyDecreaseBtn = document.querySelector('.decrease-btn');
+const qtyIncreaseBtn = document.querySelector('.increase-btn');
+const buyNowBtn = document.querySelector('.buy-now-btn');
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
 
 const searchedProduct = products.find((el) => {
     if(el.id == queryId){
@@ -22,22 +25,25 @@ const searchedProduct = products.find((el) => {
     }
 });
 
-console.log(searchedProduct);
+img.src = searchedProduct.img;
+img.alt = `${searchedProduct.title} image`;
+productHeading.textContent = searchedProduct.title;
+productDescription.textContent = searchedProduct.description;
+productPrice.textContent = `Rs.${searchedProduct.price}`;
+productQty.textContent = itemQty;
 
+qtyDecreaseBtn.addEventListener('click', () => {
+    if(itemQty > 1){
+        itemQty -= 1;
+    }
 
-// const ary = [1,2,3,2,,4,45,5];
+    productQty.textContent = itemQty;
+})
 
-// for (let i = 0; i < ary.length; i++) {
-//     if(ary[i] === 2){
-//         console.log('for', ary[i]);
-//         break;
-//     }
-// }
+qtyIncreaseBtn.addEventListener('click', () => {
+    if(itemQty < 10){
+        itemQty += 1;
+    }
 
-// const searchedElement = ary.find((el) => {
-//     if(el === 2){
-//         return el;
-//     }
-// });
-
-// console.log('find', searchedElement);
+    productQty.textContent = itemQty;
+});
