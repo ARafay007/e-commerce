@@ -20,6 +20,12 @@ const buyNowBtn = document.querySelector('.buy-now-btn');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 const cartCloseBtn = document.querySelector('.cart-close-btn');
 
+const cartIncreaseBtn = document.querySelectorAll('.cart-increase-btn');
+const cartDecreaseBtn = document.querySelectorAll('.cart-decrease-btn');
+const cartProductQty = document.querySelectorAll('.cart-product-qty');
+const removeItemBtn = document.querySelectorAll('.remove-item-btn');
+
+
 
 const searchedProduct = products.find((el) => {
     if(el.id == queryId){
@@ -55,4 +61,25 @@ qtyIncreaseBtn.addEventListener('click', () => {
 cartCloseBtn.addEventListener('click', () => {
     cart.classList.remove('cart');
     cart.classList.add('cart-close');
+});
+
+console.log(cartProductQty);
+
+cartIncreaseBtn.forEach((el, index) => {
+
+    el.addEventListener('click', () => {
+        cartProductQty[index].textContent = 10;
+    });
+
+});
+
+
+cartIncreaseBtn.forEach((el, index) => {
+    el.addEventListener('click', () => {
+        if(itemQty < 10){
+            itemQty += 1;
+        }
+
+        cartProductQty[index].textContent = itemQty;
+    });
 });
