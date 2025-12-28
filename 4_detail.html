@@ -38,15 +38,6 @@
         .items-heading{
             margin-bottom: 10px;
         }
-        .cart{
-            height: 600px;
-            width: 300px;
-            background-color: cadetblue;
-            position: fixed;
-            top: 120px;
-            right: 10px;
-            display: none;
-        }
         .product-img-container{
             width: 30%;
             height: 400px;
@@ -81,7 +72,7 @@
             border-radius: 5px;
             font-size: 25px;
         }
-        .decrease-btn, .increase-btn{
+        .decrease-btn, .increase-btn, .cart-decrease-btn, .cart-increase-btn{
             width: 40px;
             height: 40px;
             font-size: 20px;
@@ -89,13 +80,13 @@
             background-color: transparent;
             color: white;
         }
-        .decrease-btn:hover, .increase-btn:hover{
+        .decrease-btn:hover, .increase-btn:hover, .cart-decrease-btn:hover, .cart-increase-btn:hover{
             color: black;
         }
-        .decrease-btn{
+        .decrease-btn, .cart-decrease-btn{
             border-right: 1px solid rgba(30,30,30,0.3);
         }
-        .increase-btn{
+        .increase-btn, .cart-increase-btn{
             border-left: 1px solid rgba(30,30,30,0.3);
         }
         .buy-now-btn, .add-to-cart-btn{
@@ -112,6 +103,62 @@
         }
         .add-to-cart-btn{
             background-image: linear-gradient(to right, rgb(235, 192, 64), rgb(239, 215, 144));
+        }
+        .cart{
+            height: 600px;
+            width: 350px;
+            background-image: linear-gradient(rgba(47, 47, 47), rgba(50, 50, 100, 0.719));
+            position: fixed;
+            top: 120px;
+            right: 10px;
+            border-radius: 15px 0px 0px 15px;
+            transition: height 0.5s;
+        }
+        .cart-close{
+            /* position: fixed;
+            top: 120px;
+            right: 10px;
+            height: 0px;
+            width: 350px;
+            background-image: linear-gradient(rgba(47, 47, 47), rgba(50, 50, 100, 0.719));
+            transition: height 0.5s; */
+            display: none;
+        }
+        .cart-heading-container{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.259);
+        }
+        .cart-heading, .cart-close-btn{
+            color: white;
+            font-size: 30px;
+        }
+        .cart-close-btn{
+            padding: 5px 10px;
+            border-radius: 7px;
+            background-color: rgba(0, 255, 255, 0.33);
+            border: 0px;
+        }
+        .cart-item-detail{
+            color: white;
+            font-size: 25px;
+            padding: 0px 5px;
+        }
+        .cart-item-functionality{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        .remove-item-btn{
+            width: max-content;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 0px;
+            padding: 0px 5px;
+            background-color: rgba(255, 0, 0, 0.652);
+            color: white;
         }
     </style>
 </head>
@@ -146,6 +193,28 @@
         </div>
     </main>
     <aside class="cart">
+        <div class="cart-heading-container">
+            <p class="cart-heading">Cart</p>
+            <button class="cart-close-btn">X</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart-item">
+                <div class="cart-item-detail">
+                    <span>Lamp</span>
+                    <span>Rs.3000</span>
+                </div>
+                <div class="cart-item-functionality">
+                    <div class="qty-btn-container">
+                        <button class="cart-decrease-btn">-</button>
+                        <span class="cart-product-qty"></span>
+                        <button class="cart-increase-btn">+</button>
+                    </div>
+                    <div>
+                        <button class="remove-item-btn">Remove item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </aside>
     <script src="4_detail.js"></script>
 </body>

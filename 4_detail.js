@@ -12,11 +12,13 @@ const productHeading = document.querySelector('.product-heading');
 const productDescription = document.querySelector('.product-description');
 const productPrice = document.querySelector('.product-price');
 const productQty = document.querySelector('.product-qty');
+const cart = document.querySelector('.cart');
 
 const qtyDecreaseBtn = document.querySelector('.decrease-btn');
 const qtyIncreaseBtn = document.querySelector('.increase-btn');
 const buyNowBtn = document.querySelector('.buy-now-btn');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
+const cartCloseBtn = document.querySelector('.cart-close-btn');
 
 
 const searchedProduct = products.find((el) => {
@@ -32,13 +34,15 @@ productDescription.textContent = searchedProduct.description;
 productPrice.textContent = `Rs.${searchedProduct.price}`;
 productQty.textContent = itemQty;
 
+console.log(productQty);
+
 qtyDecreaseBtn.addEventListener('click', () => {
     if(itemQty > 1){
         itemQty -= 1;
     }
 
     productQty.textContent = itemQty;
-})
+});
 
 qtyIncreaseBtn.addEventListener('click', () => {
     if(itemQty < 10){
@@ -46,4 +50,9 @@ qtyIncreaseBtn.addEventListener('click', () => {
     }
 
     productQty.textContent = itemQty;
+})
+
+cartCloseBtn.addEventListener('click', () => {
+    cart.classList.remove('cart');
+    cart.classList.add('cart-close');
 });
