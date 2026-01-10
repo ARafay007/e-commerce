@@ -61,12 +61,14 @@ const accessCartItems = () => {
     const cartProductQty = document.querySelectorAll('.cart-product-qty');
     const removeItemBtn = document.querySelectorAll('.remove-item-btn');
 
-    cartDecreaseBtn.forEach((el, index) => {
-        el.addEventListener('click', () => {
+    console.log(cartDecreaseBtn);
+
+    cartDecreaseBtn.forEach((decBtn, index) => {
+        decBtn.addEventListener('click', () => {
             const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
             cartItems.forEach((item) => {
-                if(item.id == el.dataset.itemid){
+                if(item.id == decBtn.dataset.itemid){
                     item.qty = item.qty - 1;
                     cartProductQty[index].textContent = item.qty;
                 }
@@ -79,12 +81,12 @@ const accessCartItems = () => {
     });
 
 
-    cartIncreaseBtn.forEach((el, index) => {
-        el.addEventListener('click', () => {
+    cartIncreaseBtn.forEach((incBtn, index) => {
+        incBtn.addEventListener('click', () => {
             const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
             cartItems.forEach((item) => {
-                if(item.id == el.dataset.itemid){
+                if(item.id == incBtn.dataset.itemid){
                     item.qty = item.qty + 1;
                     cartProductQty[index].textContent = item.qty;
                 }
@@ -124,6 +126,7 @@ const renderCartItems = () => {
 };
 
 renderCartItems();
+accessCartItems();
 
 addToCartBtn.addEventListener('click', () => {
     let cartData = JSON.parse(localStorage.getItem('cartItems'));
